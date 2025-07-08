@@ -1,0 +1,70 @@
+<!-- entry form -->
+<div class="row">
+    <div class="col">
+     <div class="card mt-3 border-dark shadow-sm">
+        <div class="card-header bg-info">
+            <h4>Add Record</h4>
+        </div>
+        <div class="card-body">
+            <div class="row m-1 ">
+                <div class="col-md-6 mb-3">
+                    <label for="">Date:</label> &nbsp;
+                    <input type="date" name="date" [(ngModel)]="weatherObj.Date"class="form-control form-control-sm">
+                </div>
+                <div class="col-md-6 mb-3">   
+                    <label for="">TemperatureC:</label> &nbsp;
+                    <input type="number" name="temperatureC" placeholder="Enter TemperatureC" [(ngModel)]="weatherObj.TemperatureC" class="form-control form-control-sm">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="">TemperatureF:</label> &nbsp;
+                    <input type="number" name="temperatureF" placeholder="Enter TemperatureF" [(ngModel)]="weatherObj.TemperatureF" class="form-control form-control-sm">
+                </div> 
+                <div class="col-md-6 mb-3">
+                    <label for="">Summary:</label>
+                    <input type="text" name="summary" placeholder="Enter Summary" [(ngModel)]="weatherObj.Summary" class="form-control form-control-sm">
+                </div>
+                <div>
+                    <button class="btn btn-success me-4" (click)="onSave()"> Save </button>
+                    <button class="btn btn-secondary" (click)="onReset()"> Reset </button>
+                </div>
+
+            </div>
+
+        </div>
+     </div>
+    </div>
+</div>
+
+<!-- table -->
+<div class="row">
+    <div class="col">
+     <div class="card mt-3 border-dark shadow-lg">
+        <div class="card-header bg-info">
+            <h4>Weatherforecast</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="table-secondary">
+                    <th> Date</th>
+                    <th> TemperatureC</th>
+                    <th> TemperatureF</th>
+                    <th> Summary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of weatherList">
+                    <td>{{item.Date}}</td>
+                    <td>{{item.TemperatureC}}</td>
+                    <td>{{item.TemperatureF}}</td>
+                    <td>{{item.Summary}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+     </div>
+    </div>
+</div>
+

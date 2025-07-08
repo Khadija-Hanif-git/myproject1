@@ -1,0 +1,57 @@
+/* Navbar shadow and background */
+.navbar {
+  background-color: #155e63 !important; /* Dark green-blue */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Brand styling */
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  color: #e6f2f2 !important;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Hover effect for nav links */
+.navbar-nav .nav-link:hover {
+  color: #b3ecec !important;
+}
+
+/* Active link */
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: #ffffff !important;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Optional: Smooth fade-in for dropdown */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Search box customizations */
+.form-control {
+  border-radius: 0.375rem;
+}
+
+/* Search button */
+.btn-outline-success {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-outline-success:hover {
+  background-color: #ffffff;
+  color: #155e63;
+}

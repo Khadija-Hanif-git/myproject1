@@ -1,0 +1,90 @@
+<!-- Entry Form -->
+<div class="row">
+  <div class="col">
+    <div class="card mt-3 border-dark shadow-sm">
+      <div class="card-header bg-danger text-white">
+        <h4>Add Record</h4>
+      </div>
+      <div class="card-body">
+        <div class="row m-1">
+            <!-- <div class="col-md-6 mb-3" >
+                <input type="text" placeholder="Enter userId" [(ngModel)]="busUserObj.userId" class="form-control form-control-sm">
+            </div> -->
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Enter userName" [(ngModel)]="busUserObj.userName" class="form-control form-control-sm">
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Enter FullName" [(ngModel)]="busUserObj.fullName" class="form-control form-control-sm">
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="email" placeholder="Enter Email ID" [(ngModel)]="busUserObj.emailId" class="form-control form-control-sm">
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="password" placeholder="Enter Password" [(ngModel)]="busUserObj.password" class="form-control form-control-sm">
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Enter Project Name" [(ngModel)]="busUserObj.projectName" class="form-control form-control-sm">
+          </div>
+          <div class="col-md-6 mb-3">
+            <select [(ngModel)]="busUserObj.role" class="form-control form-control-sm">
+              <option value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+          <div class="col-md-12 mt-2">
+            
+            {{busUserObj.userId}} &nbsp; &nbsp; &nbsp;
+            @if (busUserObj.userId==0){
+            <button class="btn btn-success me-3" (click)="onSave()">Save</button>
+            }
+            @else {
+            <button class="btn btn-warning me-3" (click)="onUpdate()">Update</button>
+            }
+            <button class="btn btn-secondary" (click)="onReset()">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Table -->
+<div class="row">
+  <div class="col">
+    <div class="card mt-3 border-dark shadow-lg">
+      <div class="card-header bg-danger text-white">
+        <h4>BusBooking </h4>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr class="table-secondary">
+              <th>User ID</th>
+              <th>User Name</th>
+              <th>Email ID</th>
+              <th>Full Name</th>
+              <th>Password</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of busUserList">
+              <td>{{ item.userId }}</td>
+              <td>{{ item.userName }}</td>
+              <td>{{ item.emailId }}</td>
+              <td>{{ item.fullName }}</td>
+              <td>{{ item.password }}</td>
+              <td>
+                <button class="btn btn-sm btn-success me-2" (click)="onEdit(item)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="onDelete(item.userId)">Delete</button>
+              </td>
+            </tr>
+            <tr *ngIf="busUserList.length === 0">
+              <td colspan="6" class="text-center text-muted">No records found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+
+<!-- entry form -->
+<div class="row">
+    <div class="col">
+     <div class="card mt-3 border-dark shadow-sm">
+        <div class="card-header bg-warning">
+            <h4>Add Record</h4>
+        </div>
+        <div class="card-body">
+            <div class="row m-1 ">
+                <!-- <div class="col-md-6 mb-3">
+                    <label for="">userId:</label> &nbsp;  -->
+                    
+                        <!-- <select>
+                            <option value=""></option> 
+                            </select>-->
+
+                        <!-- * <option value="userId">username</option> *
+                         * userid backend pr jye gi or name frontend pr display hoga *
+                         * .ts file mai getUser ky name sy method banayen gy jo user ki ids ya shayed name 
+                         collect kry ga phir usko ngOnInit mai declare karain gy taky wo pehly display ho * -->
+
+                     <!-- <input type="number" name="userId" [(ngModel)]="userObj.userId"class="form-control form-control-sm">
+                </div>  -->
+
+                <div class="col-md-6 mb-3">   
+                    <label for="">emailId:</label> &nbsp;
+                    <input type="text"  placeholder="Enter emailId" [(ngModel)]="userObj.emailId" class="form-control form-control-sm">
+                </div>
+                <div class="col-md-6 mb-3">   
+                    <label for="">fullName:</label> &nbsp;
+                    <input type="text"  placeholder="Enter fullName" [(ngModel)]="userObj.fullName" class="form-control form-control-sm">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="">password:</label> &nbsp;
+                    <input type="text"  placeholder="Enter password" [(ngModel)]="userObj.password" class="form-control form-control-sm">
+                </div> 
+                <div class="col-md-6 mb-3">   
+                    <label for="">mobileNo:</label> &nbsp;
+                    <input type="text"  placeholder="Enter mobileNo" [(ngModel)]="userObj.mobileNo" class="form-control form-control-sm">
+                </div>
+                <div>
+                    {{userObj.userId}}
+                    @if (userObj.userId==0){
+                    <button class="btn btn-success me-4" (click)="onSave()"> Save </button>
+                    }
+                    @else {
+                    <button class="btn btn-warning me-4" (click)="onUpdate()"> Update </button>
+                    }
+                    <button class="btn btn-secondary" (click)="onReset()"> Reset </button>
+                </div>
+
+            </div>
+
+        </div>
+     </div>
+    </div>
+</div>
+
+
+<!-- table -->
+<div class="row">
+    <div class="col">
+     <div class="card mt-3 border-dark shadow-lg">
+        <div class="card-header bg-warning">
+            <h4>GoalTracker</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="table-secondary">
+                    <th> userId</th>
+                    <th> emailId</th>
+                    <th> password</th>
+                    <th> fullName</th>
+                    <th> mobileNo</th>
+                    <th> action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of userList">
+                    <td>{{item.userId}}</td>
+                    <td>{{item.emailId}}</td>
+                    <td>{{item.password}}</td>
+                    <td>{{item.fullName}}</td>
+                    <td>{{item.mobileNo}}</td>
+                    <td><button class="btn btn-success me-4" (click)="onEdit(item)">Edit</button>
+                        <button class="btn btn-danger" (click)="onDelete(item.userId)">Delete</button></td>
+                   
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+     </div>
+    </div>
+</div>
+

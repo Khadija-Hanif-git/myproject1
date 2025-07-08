@@ -1,0 +1,13 @@
+.card{
+    padding: 2rem;
+    background-color: rgb(218, 235, 235);
+}
+.text{
+    text-decoration: none;
+}
+.text:hover{
+    color: rgb(15, 15, 114);
+    text-decoration: underline;
+    cursor: pointer;
+    
+}

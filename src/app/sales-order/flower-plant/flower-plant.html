@@ -1,0 +1,78 @@
+<div>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="fw-bold mb-0">Flower Plants</h3>
+    <button class="btn btn-success" (click)="toggleAddForm()">
+    {{ showAddForm ? 'Close Form' : '+ Add New Product' }}
+    </button>
+    </div>
+
+    <table class="table table-bordered table-striped table-responsive caption-top">
+      <thead class="table-secondary">
+        <tr>
+          <th>Name</th>
+          <th>Gross</th>
+          <th>Net</th>
+          <th>Stock</th>
+          <th>Available</th>
+          <th>Sold</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <tr>
+          <th><input class="form-control form-control-sm" [(ngModel)]="filters.name" placeholder="Search Name" /></th>
+          <th><input class="form-control form-control-sm" [(ngModel)]="filters.gross" placeholder="Search Gross" /></th>
+          <th><input class="form-control form-control-sm" [(ngModel)]="filters.net" placeholder="Search Net" /></th>
+          <th><input class="form-control form-control-sm" [(ngModel)]="filters.stock" placeholder="Search Stock" /></th>
+          <th><input class="form-control form-control-sm" [(ngModel)]="filters.available" placeholder="Search Available" /></th>
+          <th><input class="form-control form-control-sm" [(ngModel)]="filters.sold" placeholder="Search Sold" /></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let product of filteredProducts(); let i = index">
+          <td>{{ product.name }}</td>
+          <td>{{ product.gross }}</td>
+          <td>{{ product.net }}</td>
+          <td>{{ product.stock }}</td>
+          <td [ngClass]="{ 'text-danger fw-bold': product.available < 30, 'text-success fw-semibold': product.available >= 30 }">{{ product.available }}</td>
+          <td>{{ product.sold }}</td>
+          <td><button class="btn btn-sm btn-primary" (click)="editProduct(i)"><i class="bi bi-pencil"></i></button></td>
+          <td><button class="btn btn-sm btn-danger" (click)="deleteProduct(i)"><i class="bi bi-trash"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add/Edit Form -->
+    <div class="card p-3 mt-4" *ngIf="showAddForm">
+      <h5>{{ editingIndex !== null ? 'Edit Product' : 'Add New Product' }}</h5>
+
+      <div class="row g-2">
+        <div class="col">
+          <input [(ngModel)]="newProduct.name" class="form-control" placeholder="Name" />
+        </div>
+        <div class="col">
+          <input type="number" [(ngModel)]="newProduct.gross" class="form-control" placeholder="Gross" />
+        </div>
+        <div class="col">
+          <input type="number" [(ngModel)]="newProduct.net" class="form-control" placeholder="Net" />
+        </div>
+        <div class="col">
+          <input type="number" [(ngModel)]="newProduct.stock" class="form-control" placeholder="Stock" />
+        </div>
+        <div class="col">
+          <input type="number" [(ngModel)]="newProduct.available" class="form-control" placeholder="Available" />
+        </div>
+        <div class="col">
+          <input type="number" [(ngModel)]="newProduct.sold" class="form-control" placeholder="Sold" />
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <button class="btn btn-success me-2" *ngIf="editingIndex === null" (click)="addProduct()">Add</button>
+        <button class="btn btn-primary me-2" *ngIf="editingIndex !== null" (click)="updateProduct()">Update</button>
+        <button class="btn btn-secondary" (click)="resetForm()">Cancel</button>
+      </div>
+    </div>
+  </div>

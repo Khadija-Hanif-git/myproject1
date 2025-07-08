@@ -1,0 +1,17 @@
+
+.card{
+  background-color: rgb(224, 239, 239); }
+.d-flex{
+  color: rgb(58, 82, 128);
+  text-decoration: underline;
+}
+.custom-card{
+  background-color: rgb(234, 234, 242) ;
+  min-height: 200px;
+  max-width: 130px;
+}
+.custom-card:hover{
+    transform: translateY(-4px);
+    background-color: #c4dee6;
+    cursor: pointer;
+}
